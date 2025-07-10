@@ -1,0 +1,57 @@
+<style>
+    table{
+        width:100%;
+        width: ;
+
+    }
+    th,td{
+        padding: 10px;
+
+    }
+    .head{
+        background-color: blue;
+    }
+    .head th{
+        color: whitesmoke;
+    }
+    th a{ 
+        background-color:  green;
+        color: white;
+        padding: 6px;
+
+    }
+    .btndelet{
+        color: white;
+        background-color: darkblue;
+        padding: 10px;
+        border-radius: 7px;
+        margin: 20px;
+    }
+    .btnadd{
+
+    }
+
+
+</style>
+<a href ="/register" class=""btnadd">Add New User</a>
+<form>
+    <input type="search" name="search" placeholder="Search here"/>
+</form>
+<table border="1">
+    <tr>
+        <th>Sn</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+{% for user in users%}
+<tr>
+    <th></th>
+    <th>{{user.username}}</th>
+    <th>{{user.email}}</th>
+    <td>
+    <a herf="{{url_for('updateuser',id=user.id)}}">update</a>&nbsp;&nbsp;
+    <a herf ="{{url_for('deleteuser',id=user.id)}}" class="delete">Delete</a>
+</td>
+{% endfor %}
+</table>
